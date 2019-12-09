@@ -19,13 +19,23 @@ def selection_sort( arr ):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
   for i in range(len(arr)):
-    # since we are bubbling the largest element to the end, 
-    # we can progressively loop through one less item each time
-    for j in range(0, len(arr)-i-1):
+
+    # set initial state for swap status
+    swapped = False
+    for j in range(0, len(arr) - 1):
+
       # if pair[1] > pair[0], swap them. 
       # This will progressively bump larger items to end of list
       if arr[j] > arr[j + 1]:
         arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+        # a swap was made, so inform the algorithm to not break prematurely
+        swapped = True
+
+    # if there are no swaps, break, the list is sorted
+    if swapped == False:
+      break
+    
   return arr
 
 
